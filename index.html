@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style rel="stylesheet" type="text/css" href="style.css"></style>
     <script defer src="login-page.js"></script>
+    <!-- Configuration to construct the captcha widget.
+      Sitekey is a Mandatory Parameter-->
+   <script>
+    var mtcaptchaConfig = {
+      "sitekey": "MTPublic-1ZSMjY1LF"
+     };
+   (function(){var mt_service = document.createElement('script');mt_service.async = true;mt_service.src = 'https://service.mtcaptcha.com/mtcv1/client/mtcaptcha.min.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mt_service);
+   var mt_service2 = document.createElement('script');mt_service2.async = true;mt_service2.src = 'https://service2.mtcaptcha.com/mtcv1/client/mtcaptcha2.min.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mt_service2);}) ();
+   </script>
 </head>
 <body>
     <p>Hello world!</p>
+    <p>Login: user</p>
+    <p>Password: sameaslogin</p>
     <main id="main-holder">
       <h1 id="login-header">Login</h1>
       
@@ -22,5 +33,62 @@
       </form>
     
     </main>
+    <a href="https://index.minfin.com.ua/exchange/world/"><img src="https://index.minfin.com.ua/exchange/informer/png.php?1&UAH+USD&101_" border="0" alt="Доларовий курс"></a>
+  <form name="conversion" frame="1">
+      Курс <input type="number" id="cource" >
+
+      Сума грн. <input type="number" id="amount">
+
+      <div>
+          Сума USD    <p id="sum"></p>
+          <button type="button" id="calc">calc</button>
+      </div>
+      <script>
+        const calc = document.querySelector('#calc');
+        const cource = document.querySelector('#cource');
+        const amount = document.querySelector('#amount');
+          calc.addEventListener("click", () => {
+          let n1 = cource.value;
+          let n2 = amount.value;
+          console.log(n1);
+          console.log(cource);
+          document.getElementById("sum").innerHTML = n1*n2;
+        })
+      </script>
+
+
+      <p>The Final Countdown*</p>
+      <p id="demo"></p>
+
+      <script>
+      var countDownDate = new Date("Oct 28, 2024 00:00:08").getTime();
+
+      var x = setInterval(function() {
+
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+      </script>
+      <p>Left to sweet 26</p>
+
+      
+      <!-- MTCap library by default looks for a DIV of class='mtcaptcha' to place the captcha widget -->
+<div class='mtcaptcha'></div>
+
+
 </body>
 </html>
